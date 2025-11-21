@@ -6,6 +6,7 @@ load_dotenv()
 
 class Config:
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY")
+    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL")
     ELEVENLABS_API_KEY: str = os.getenv("ELEVENLABS_API_KEY")
 
     @staticmethod
@@ -13,6 +14,8 @@ class Config:
         missing = []
         if not Config.OPENAI_API_KEY:
             missing.append("OPENAI_API_KEY")
+        if not Config.OPENAI_MODEL:
+            missing.append("OPENAI_MODEL")
         if not Config.ELEVENLABS_API_KEY:
             missing.append("ELEVENLABS_API_KEY")
 
