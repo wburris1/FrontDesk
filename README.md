@@ -16,7 +16,7 @@ FrontDeskAI is a voice-enabled AI assistant designed for healthcare front-desk t
 
 ## Getting Started
 
-Follow these steps to set up and run the project locally.
+Follow these steps to set up and run the project locally. Note: this project requires Python3 version >= 3.11.0.
 
 ### 1. Clone the repository
 
