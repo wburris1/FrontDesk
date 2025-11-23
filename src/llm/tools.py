@@ -17,9 +17,12 @@ TOOLS = [
                     "enum": DOCTORS,
                     "description": "id of given doctor in this format using doctor's last name: dr_john"
                 },
-                "appointment_type": { "type": "string", "description": "Type of appointment, e.g., general check-up, annual physical, gynecological exam" },
+                "reason": {
+                    "type": "string",
+                    "description": "Reason for the appointment, e.g., annual physical, strange rash, vaccination"\
+                },
             },
-            "required": ["day", "time", "appointment_type"],
+            "required": ["day", "time", "reason"],
         }
     },
     {
@@ -43,16 +46,27 @@ TOOLS = [
             },
             "required": ["name", "provider"],
         }
+    },
+    {
+        "name": "end_call",
+        "type": "function",
+        "description": "Stops the recording when the conversation is complete and user needs are met."
     }
 ]
 
 
 def execute_tool_call(name: str, args: dict):
     """Execute the appropriate backend function based on tool name."""
+
     if name == "check_availability":
-        return check_availability(args["day"], args["time"], args["doctor"], args["appointment_type"])
+        return check_availability(args["day"], args["time"], args["reason"], args["doctor"])
 
     if name == "verify_insurance":
         return verify_insurance(args["name"], args["provider"], args["procedure"])
+    
+    if name == "end_call":
+        return {
+            "message": "Ending call."
+        }
 
     raise ValueError(f"Unknown tool: {name}")

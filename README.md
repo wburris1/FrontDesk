@@ -1,1 +1,61 @@
-# FrontDesk
+# FrontDeskAI Voice Assistant
+
+FrontDeskAI is a voice-enabled AI assistant designed for healthcare front-desk tasks, including scheduling appointments, verifying insurance, and answering clinic FAQs.
+
+---
+
+## Features
+
+- Real-time speech-to-text transcription
+- Text-to-speech responses
+- Integration with an LLM for intelligent conversation
+- Automatic handling of appointment scheduling and insurance verification
+- Easy start/stop recording functionality
+
+---
+
+## Getting Started
+
+Follow these steps to set up and run the project locally.
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd <your-project-folder>
+```
+
+### 2. Create a virtual environment
+
+```bash
+python3 -m venv venv
+```
+
+### 3. Activate the virtual environment
+
+MacOS/Linux:
+```bash
+source venv/bin/activate
+```
+
+Windows:
+```bash
+.\venv\Scripts\Activate.ps1
+```
+
+### 4. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the project
+
+```bash
+python3 main.py
+```
+
+Once started, the assistant will begin listening. Speak naturally, and it will respond to your queries regarding appointments, insurance, and general clinic information.
+
+
+

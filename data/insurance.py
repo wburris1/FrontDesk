@@ -11,11 +11,6 @@ INSURANCE_TABLE = {
                 "bloodwork": "covered",
                 "mental_health": "limited_coverage"
             },
-            "what_needs_to_be_verified": [
-                "Confirm the patient's plan is active.",
-                "Verify if prior authorization is needed for X-rays.",
-                "Ask the patient to bring their insurance card and photo ID."
-            ]
         }
     },
 
@@ -31,11 +26,6 @@ INSURANCE_TABLE = {
                 "bloodwork": "covered",
                 "mental_health": "covered"
             },
-            "what_needs_to_be_verified": [
-                "Check if the policy has lapsed.",
-                "Confirm coverage for routine checkups.",
-                "Ask the patient to bring updated insurance documentation."
-            ]
         }
     },
 
@@ -51,11 +41,6 @@ INSURANCE_TABLE = {
                 "bloodwork": "covered_out_of_network",
                 "mental_health": "not_covered"
             },
-            "what_needs_to_be_verified": [
-                "Explain that the clinic does not accept Cigna in-network.",
-                "Tell the patient what out-of-network billing means.",
-                "Confirm if the patient still wishes to proceed."
-            ]
         }
     }
 }
