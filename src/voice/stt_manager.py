@@ -14,7 +14,6 @@ def transcribe_audio(audio_chunk: np.ndarray, sample_rate = 16000) -> str:
     try:
         duration = len(audio_chunk) / sample_rate
         if duration < MIN_AUDIO_LENGTH:
-            print(f"[STT] Audio too short ({duration:.2f}s), skipping...")
             return None
 
         with io.BytesIO() as buf:

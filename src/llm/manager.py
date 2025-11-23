@@ -34,14 +34,12 @@ class LLMManager:
 
     def ask(self, user_text: str) -> str:
         self.add("user", user_text)
-        
+
         # Initial LLM response
         response = client.responses.create(
             model=Config.OPENAI_MODEL,
-            input=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                *self.history
-            ],
+            instructions=SYSTEM_PROMPT,
+            input=self.history,
             tools=TOOLS,
             tool_choice="auto"
         )
@@ -72,10 +70,10 @@ class LLMManager:
             # Ask LLM to produce final natural-language reply
             followup = client.responses.create(
                 model=Config.OPENAI_MODEL,
-                input=[
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    *self.history
-                ]
+                instructions=SYSTEM_PROMPT,
+                input=self.history,
+                tools=TOOLS,
+                tool_choice="auto"
             )
 
             final_text = extract_text(followup)

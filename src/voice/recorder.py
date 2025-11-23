@@ -14,8 +14,8 @@ CHANNELS = 1
 FRAME_DURATION_MS = 30
 VAD_AGGRESSIVENESS = 2
 SILENCE_FRAMES_TO_END = 20  # number of silent frames to consider end of speech
-GREETING_MESSAGE = "Hi! This is the Covenant House Health Clinic. What can I do for you today?"
-UNSURE_MESSAGE = "Sorry, I couldn't quite catch that."
+GREETING_MESSAGE = "Thank you for calling the Covenant House Health Clinic. How can I help you today?"
+UNSURE_MESSAGE = "“I'm sorry, I didn't quite catch that. Could you please say it again?”"
 
 vad = webrtcvad.Vad(VAD_AGGRESSIVENESS)
 

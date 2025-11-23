@@ -40,7 +40,7 @@ def check_availability(day: str, time: str, reason: str, doctor: str = ""):
 def verify_insurance(name: str, provider: str, procedure: str = ""):
     provider_data = INSURANCE_TABLE.get(provider, {})
     info = provider_data.get(name.lower(), {})
-    policy_number = info.get("policy_number", "")
+    #policy_number = info.get("policy_number", "")
     provider_accepted = info.get("accepted", False)
     eligibility_active = info.get("eligibility_active", False)
     coverage = info.get("coverage", {})
@@ -49,7 +49,7 @@ def verify_insurance(name: str, provider: str, procedure: str = ""):
     return {
         "name": name,
         "provider": provider,
-        "policy_number": policy_number,
+        #"policy_number": policy_number,
         "eligibility_active": eligibility_active,
         "procedure": procedure,
         "provider_accepted": provider_accepted,
