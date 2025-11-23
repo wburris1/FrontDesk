@@ -80,7 +80,7 @@ class LLMManager:
 
             if tool_name == "end_call":
                 from ..voice.tts_manager import speak
-                #speak(final_text)
+                speak(final_text)
                 print("Assistant: " + final_text)
                 if self.recorder:
                     self.recorder.stop_signal = True

@@ -40,7 +40,7 @@ class StreamingRecorder:
         self.input_stream = None
 
     def llm_worker(self):
-        # speak(GREETING_MESSAGE)
+        speak(GREETING_MESSAGE)
         while not self.stop_event.is_set():
             try:
                 resp = self.llm_queue.get(timeout=0.5)
@@ -61,11 +61,11 @@ class StreamingRecorder:
             try:
                 if is_valid == False:
                     print("Low confidence.")
-                    # speak(UNSURE_MESSAGE)
+                    speak(UNSURE_MESSAGE)
                 else:
                     assistant_response = self.llm_manager.ask(cleaned)
                     print(f"Assistant: {assistant_response}")
-                    # speak(assistant_response)
+                    speak(assistant_response)
             except Exception as e:
                 print(f"[LLM error] {e}")
 
@@ -99,7 +99,7 @@ class StreamingRecorder:
                             self.llm_queue.put_nowait(resp)
                         except queue.Full:
                             print("LLM queue full; dropping transcript.")
-                            
+
                     # Reset buffers
                     self.speech_buffer = []
                     self.silent_frames = 0
