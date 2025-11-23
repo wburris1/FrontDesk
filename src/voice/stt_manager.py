@@ -5,7 +5,7 @@ from elevenlabs.client import ElevenLabs
 from ..config import Config
 
 MIN_AUDIO_LENGTH = 0.2 # seconds minimum length of audio to send to llm
-MIN_LANG_PROB = 0.2 # minimum language probability to accept input
+MIN_LANG_PROB = 0.1 # minimum language probability to accept input
 
 elevenlabs_client = ElevenLabs(api_key=Config.ELEVENLABS_API_KEY)
 

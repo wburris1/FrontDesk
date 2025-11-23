@@ -99,8 +99,7 @@ class StreamingRecorder:
                             self.llm_queue.put_nowait(resp)
                         except queue.Full:
                             print("LLM queue full; dropping transcript.")
-                    else:
-                        print("No transcription available.")
+                            
                     # Reset buffers
                     self.speech_buffer = []
                     self.silent_frames = 0
