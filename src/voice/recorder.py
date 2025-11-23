@@ -28,6 +28,7 @@ class StreamingRecorder:
         self.last_llm_call_time = 0.0
         self.last_transcript = ""
         self.stop_signal = False
+        self.is_speaking = False
 
         # Queue and stop event for background LLM worker
         self.llm_queue: "queue.Queue[str]" = queue.Queue(maxsize=8)
@@ -40,7 +41,9 @@ class StreamingRecorder:
         self.input_stream = None
 
     def llm_worker(self):
+        self.is_speaking = True
         speak(GREETING_MESSAGE)
+        self.is_speaking = False
         while not self.stop_event.is_set():
             try:
                 resp = self.llm_queue.get(timeout=0.5)
@@ -61,11 +64,15 @@ class StreamingRecorder:
             try:
                 if is_valid == False:
                     print("Low confidence.")
+                    self.is_speaking = True
                     speak(UNSURE_MESSAGE)
+                    self.is_speaking = False
                 else:
                     assistant_response = self.llm_manager.ask(cleaned)
                     print(f"Assistant: {assistant_response}")
+                    self.is_speaking = True
                     speak(assistant_response)
+                    self.is_speaking = False
             except Exception as e:
                 print(f"[LLM error] {e}")
 
@@ -73,6 +80,10 @@ class StreamingRecorder:
             self.last_transcript = cleaned
 
     def callback(self, indata, frames, time_info, status):
+        # Don't listen while TTS is playing
+        if self.is_speaking:
+            return
+        
         self.buffer = np.concatenate([self.buffer, indata[:, 0]])
 
         while len(self.buffer) >= self.frame_size:
