@@ -21,8 +21,8 @@ Follow these steps to set up and run the project locally.
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/wburris1/FrontDesk.git
+cd FrontDesk
 ```
 
 ### 2. Create a virtual environment
