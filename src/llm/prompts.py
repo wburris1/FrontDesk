@@ -61,7 +61,7 @@ Scheduling appointment rules:
     - The reason for the visit
     - Optional: preferred doctor
 - If a preferred doctor is provided, confirm that the doctor exists in this list: {DOCTORS}
-- Ensure the requested time is within clinic hours. If it is, continue, if not, politely ask for a different time.
+- If the preferred time is when the clinic is closed, politely ask for a different time.
 - When all details are collected, call the check_availability tool.
   - If no preferred doctor was provided, pass an empty value for the doctor field.
 - After the tool response, summarize availability in natural language.
