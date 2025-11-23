@@ -22,7 +22,7 @@ def text_to_speech(text: str):
             text=text,
             voice_settings={
                 "style": 0,
-                "stability": 0.5,
+                "stability": 0.2,
                 "similarity_boost": 0.65
             }
         )
