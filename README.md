@@ -25,13 +25,25 @@ git clone https://github.com/wburris1/FrontDesk.git
 cd FrontDesk
 ```
 
-### 2. Create a virtual environment
+### 2. Copy the environment and enter your credentials
+
+MacOS/Linux
+```bash
+cp .env.sample .env
+```
+
+Windows:
+```bash
+copy .env.sample .env
+```
+
+### 3. Create a virtual environment
 
 ```bash
 python3 -m venv venv
 ```
 
-### 3. Activate the virtual environment
+### 4. Activate the virtual environment
 
 MacOS/Linux:
 ```bash
@@ -43,13 +55,13 @@ Windows:
 .\venv\Scripts\Activate.ps1
 ```
 
-### 4. Install dependencies
+### 5. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Run the project
+### 6. Run the project
 
 ```bash
 python3 main.py
